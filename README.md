@@ -19,3 +19,4 @@ This project is a Crypto Market AI Assistant that provides AI-driven market tren
 - Smart Contracts: Move Language on Aptos
 - Oracles: Chainlink for price feeds
 - Frontend: React.js + Tailwind CSS
+![WhatsApp Image 2025-02-28 at 22 31 02_e1a022bb](https://github.com/user-attachments/assets/7d2d70c9-c8a9-4608-b062-5952b8698e46)
