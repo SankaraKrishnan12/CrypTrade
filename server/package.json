@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
-  },
+"scripts": {
+  "start": "cd model && . mod/bin/activate && uvicorn predict:app --host 0.0.0.0 --port 8000 & node server.js"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -16,6 +15,10 @@
     "ethers": "^6.13.5",
     "express": "^4.21.2",
     "json2csv": "^6.0.0-alpha.2",
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "openai": "^4.86.2"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
   }
 }
