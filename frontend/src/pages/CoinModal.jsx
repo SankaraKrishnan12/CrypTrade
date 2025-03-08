@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -7,11 +7,12 @@ import {
   LinearScale,
   PointElement,
 } from "chart.js";
+import axios from "axios";
 
 // Register necessary Chart.js components
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement);
 
-const CoinModal = ({ coin = {}, onClose, onAnalyze, onBuy, onSell }) => {
+const CoinModal = ({ coin = {}, onClose, onAnalyze, onBuy, onSell, stockId }) => {
   const priceHistory = [
     coin.apyPct1D ?? 0,
     coin.apyPct7D ?? 0,
@@ -30,6 +31,20 @@ const CoinModal = ({ coin = {}, onClose, onAnalyze, onBuy, onSell }) => {
       },
     ],
   };
+
+  const[final, setFinal] = useState(false)
+  const[predicted, setPredicted] = useState(null)
+  
+  const handlePredict = async() => {
+    await axios.get(`http://localhost:5000/yield/${stockId}`)
+          .then((res) => {
+              setFinal(true)
+              setPredicted(res.data)
+          })    
+          .catch((err) => {
+            console.log(err.message)
+          })
+    }
 
   return (
     <div className="modal-overlay">
@@ -55,17 +70,27 @@ const CoinModal = ({ coin = {}, onClose, onAnalyze, onBuy, onSell }) => {
           <Line data={chartData} />
         </div>
 
-        <div className="modal-actions">
-          <button className="analyze-btn" onClick={() => onAnalyze?.(coin)}>
-            Analyze
-          </button>
-          <button className="buy-btn" onClick={() => onBuy?.(coin)}>
-            Buy
-          </button>
-          <button className="sell-btn" onClick={() => onSell?.(coin)}>
-            Sell
-          </button>
-        </div>
+          <div className="modal-actions">
+            <button className="analyze-btn" onClick={() => handlePredict()}>
+              Analyze
+            </button>
+            <button className="buy-btn" onClick={() => onBuy?.(coin)}>
+              Buy
+            </button>
+            <button className="sell-btn" onClick={() => onSell?.(coin)}>
+              Sell
+            </button>
+          </div>
+          
+          {final &&
+            <div className="prediction">
+              <p>Apy : {predicted.predicted_apy}</p>
+              <p>Trade Signal : {predicted.trade_signal}</p>
+              <p>Best Dex : {predicted.best_dex}</p>
+              <p>Risk Level : {predicted.risk_level}</p>
+            </div>
+          }
+        
       </div>
     </div>
   );

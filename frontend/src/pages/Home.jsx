@@ -3,7 +3,7 @@ import axios from "axios";
 import CoinModal from "./CoinModal";
 import aiVid from "./aiMod.mp4";
 import AIChatPopup from "../components/aiChatPopup"; 
-import Navbar from "../components/navbar";
+import Navbar from "../components/Navbar";
 import "./styles.css";
 import "./CoinModal.css";
 
@@ -32,7 +32,11 @@ const Home = () => {
   const handleAiClick = () => {
     setShowChat((prev) => !prev); 
   };
-
+  const[stockId, setStockId] = useState(0)
+  const handlePrice = (coin, id) => {
+    setSelectedCoin(coin)
+    setStockId(id)
+  }
   return (
     <div className="container">
       <Navbar/>
@@ -71,7 +75,8 @@ const Home = () => {
             </thead>
             <tbody>
               {yieldData.map((coin, index) => (
-                <tr key={index} onClick={() => setSelectedCoin(coin)}>
+                <tr key={index} onClick={() => handlePrice(coin, index)}>
+                  {/* {console.log(index)} */}
                   <td>{coin.chain}</td>
                   <td>{coin.project}</td>
                   <td>{coin.symbol}</td>
@@ -108,7 +113,7 @@ const Home = () => {
       )}
 
       {selectedCoin && (
-        <CoinModal coin={selectedCoin} onClose={() => setSelectedCoin(null)} />
+        <CoinModal coin={selectedCoin} stockId={stockId} onClose={() => setSelectedCoin(null)} />
       )}
 
       <div className="ai-icon-container" onClick={handleAiClick}>
