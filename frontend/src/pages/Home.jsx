@@ -36,8 +36,19 @@ const Home = () => {
   return (
     <div className="container">
       <Navbar/>
-      <h1 className="title">Crypto Market</h1>
-
+      <div className="text-container">
+        <h1 className="title">CrypTrade</h1>
+      </div>
+      <div class='light x1'></div>
+    <div class='light x2'></div>
+    <div class='light x3'></div>
+    <div class='light x4'></div>
+    <div class='light x5'></div>
+    <div class='light x6'></div>
+    <div class='light x7'></div>
+    <div class='light x8'></div>
+    <div class='light x9'></div>
+      
       {loading ? (
         <p>Loading yield data...</p>
       ) : yieldData ? (
@@ -120,6 +131,7 @@ const Home = () => {
 
       {showChat && <AIChatPopup onClose={() => setShowChat(false)} />}
     </div>
+    
   );
 };
 
