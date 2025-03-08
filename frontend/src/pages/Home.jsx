@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import "./styles.css";
 import CoinModal from "./CoinModal";
 import aiVid from "./aiMod.mp4";
-import AIChatPopup from "../components/aiChatPopup"; // Import the AI Chat component
+import AIChatPopup from "../components/aiChatPopup"; 
+import Navbar from "../components/navbar";
+import "./styles.css";
+import "./CoinModal.css";
 
 const Home = () => {
   const [selectedCoin, setSelectedCoin] = useState(null);
@@ -28,13 +30,25 @@ const Home = () => {
   }, []);
 
   const handleAiClick = () => {
-    setShowChat((prev) => !prev); // Toggle chat visibility
+    setShowChat((prev) => !prev); 
   };
 
   return (
     <div className="container">
-      <h1 className="title">Crypto Market</h1>
-
+      <Navbar/>
+      <div className="text-container">
+        <h1 className="title">CrypTrade</h1>
+      </div>
+      <div class='light x1'></div>
+    <div class='light x2'></div>
+    <div class='light x3'></div>
+    <div class='light x4'></div>
+    <div class='light x5'></div>
+    <div class='light x6'></div>
+    <div class='light x7'></div>
+    <div class='light x8'></div>
+    <div class='light x9'></div>
+      
       {loading ? (
         <p>Loading yield data...</p>
       ) : yieldData ? (
@@ -97,7 +111,6 @@ const Home = () => {
         <CoinModal coin={selectedCoin} onClose={() => setSelectedCoin(null)} />
       )}
 
-      {/* AI Floating Video Icon */}
       <div className="ai-icon-container" onClick={handleAiClick}>
         <video
           ref={videoRef}
@@ -106,7 +119,7 @@ const Home = () => {
           disablePictureInPicture
           controlsList="noplaybackrate nodownload nofullscreen noremoteplayback"
           onContextMenu={(e) => e.preventDefault()}
-          style={{pointerEvents: "none" }}
+          style={{ pointerEvents: "none" }}
           autoPlay
           loop
           muted
@@ -116,9 +129,9 @@ const Home = () => {
         </video>
       </div>
 
-      {/* AI Chat Popup (Conditional Rendering) */}
       {showChat && <AIChatPopup onClose={() => setShowChat(false)} />}
     </div>
+    
   );
 };
 

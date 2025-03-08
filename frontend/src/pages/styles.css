@@ -1,46 +1,230 @@
-/* Global Styles */
 body {
     background-color: #121212;
     color: white;
     font-family: Arial, sans-serif;
-}
-
-/* Container */
-.container {
-    margin-left: 20px;
-    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    background-color: #000;
+  }
+  .light {
+    position: absolute;
+    width: 0px;
+    opacity: .75;
+    background-color: rgb(236, 255, 96);
+    box-shadow: #fff89a 0px 0px 20px 2px;
+    opacity: 0;
+    top: 100vh;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
     margin: auto;
-    text-align: center;
 }
 
-/* Title Styling */
+.x1{
+  -webkit-animation: floatUp 4s infinite linear;
+  -moz-animation: floatUp 4s infinite linear;
+  -o-animation: floatUp 4s infinite linear;
+  animation: floatUp 4s infinite linear;
+   -webkit-transform: scale(1.0);
+   -moz-transform: scale(1.0);
+   -o-transform: scale(1.0);
+  transform: scale(1.0);
+}
+
+.x2{
+  -webkit-animation: floatUp 7s infinite linear;
+  -moz-animation: floatUp 7s infinite linear;
+  -o-animation: floatUp 7s infinite linear;
+  animation: floatUp 7s infinite linear;
+  -webkit-transform: scale(1.6);
+  -moz-transform: scale(1.6);
+  -o-transform: scale(1.6);
+  transform: scale(1.6);
+  left: 15%;
+}
+
+.x3{
+  -webkit-animation: floatUp 2.5s infinite linear;
+  -moz-animation: floatUp 2.5s infinite linear;
+  -o-animation: floatUp 2.5s infinite linear;
+  animation: floatUp 2.5s infinite linear;
+  -webkit-transform: scale(.5);
+  -moz-transform: scale(.5);
+  -o-transform: scale(.5);
+  transform: scale(.5);
+  left: -15%;
+}
+
+.x4{
+  -webkit-animation: floatUp 4.5s infinite linear;
+  -moz-animation: floatUp 4.5s infinite linear;
+  -o-animation: floatUp 4.5s infinite linear;
+  animation: floatUp 4.5s infinite linear;
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+  left: -34%;
+}
+
+.x5{
+  -webkit-animation: floatUp 8s infinite linear;
+  -moz-animation: floatUp 8s infinite linear;
+  -o-animation: floatUp 8s infinite linear;
+  animation: floatUp 8s infinite linear;
+  -webkit-transform: scale(2.2);
+  -moz-transform: scale(2.2);
+  -o-transform: scale(2.2);
+  transform: scale(2.2);
+  left: -57%;
+}
+
+.x6{
+  -webkit-animation: floatUp 3s infinite linear;
+  -moz-animation: floatUp 3s infinite linear;
+  -o-animation: floatUp 3s infinite linear;
+  animation: floatUp 3s infinite linear;
+  -webkit-transform: scale(.8);
+  -moz-transform: scale(.8);
+  -o-transform: scale(.8);
+  transform: scale(.8);
+  left: -81%;
+}
+
+.x7{
+  -webkit-animation: floatUp 5.3s infinite linear;
+  -moz-animation: floatUp 5.3s infinite linear;
+  -o-animation: floatUp 5.3s infinite linear;
+  animation: floatUp 5.3s infinite linear;
+  -webkit-transform: scale(3.2);
+  -moz-transform: scale(3.2);
+  -o-transform: scale(3.2);
+  transform: scale(3.2);
+  left: 37%;
+}
+
+.x8{
+  -webkit-animation: floatUp 4.7s infinite linear;
+  -moz-animation: floatUp 4.7s infinite linear;
+  -o-animation: floatUp 4.7s infinite linear;
+  animation: floatUp 4.7s infinite linear;
+  -webkit-transform: scale(1.7);
+  -moz-transform: scale(1.7);
+  -o-transform: scale(1.7);
+  transform: scale(1.7);
+  left: 62%;
+}
+
+.x9{
+  -webkit-animation: floatUp 4.1s infinite linear;
+  -moz-animation: floatUp 4.1s infinite linear;
+  -o-animation: floatUp 4.1s infinite linear;
+  animation: floatUp 4.1s infinite linear;
+  -webkit-transform: scale(0.9);
+  -moz-transform: scale(0.9);
+  -o-transform: scale(0.9);
+  transform: scale(0.9);
+  left: 85%;
+}
+
+
+@-webkit-keyframes floatUp{
+  0%{top: 100vh; opacity: 0;}
+  25%{opacity: 1;}
+  50%{top: 0vh; opacity: .8;}
+  75%{opacity: 1;}
+  100%{top: -100vh; opacity: 0;}
+}
+@-moz-keyframes floatUp{
+  0%{top: 100vh; opacity: 0;}
+  25%{opacity: 1;}
+  50%{top: 0vh; opacity: .8;}
+  75%{opacity: 1;}
+  100%{top: -100vh; opacity: 0;}
+}
+@-o-keyframes floatUp{
+  0%{top: 100vh; opacity: 0;}
+  25%{opacity: 1;}
+  50%{top: 0vh; opacity: .8;}
+  75%{opacity: 1;}
+  100%{top: -100vh; opacity: 0;}
+}
+@keyframes floatUp{
+  0%{top: 100vh; opacity: 0;}
+  25%{opacity: 1;}
+  50%{top: 0vh; opacity: .8;}
+  75%{opacity: 1;}
+  100%{top: -100vh; opacity: 0;}
+}
+
+  .text-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .text-container h1{
+    margin: 0;
+    color: rgba(225,225,225, .01);
+    background-image: url("https://i.pinimg.com/originals/85/b0/e9/85b0e9bd905aae6728390e6cfc2ad829.jpg");
+    background-repeat: repeat;
+    -webkit-background-clip:text;
+    animation: animate 15s ease-in-out infinite;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 900;
+    position: relative;
+    font-size: 6rem;
+    margin: 20px 0;
+  }
+  
+    @keyframes animate {
+      0%, 100% {
+        background-position: left top;
+      }
+      25%{
+        background-position: right bottom;
+       }
+      50% {
+        background-position: left bottom;
+      }
+      75% {
+        background-position: right top;
+      }   
+  }
+  
+
+.container {
+    width: 100%;
+    text-align: center;
+    padding: 0 5%;
+}
+
 .title {
-    font-size: 2rem;
+    position: relative;
+    font-size: 3rem;
     margin: 20px 0;
 }
 
-/* Center the Table */
 .table-container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    position: relative; 
 }
 
-/* Table Styling */
 .crypto-table {
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     border-collapse: collapse;
-    border-radius: 10px;
-    overflow: hidden;
     background: #1e1e1e;
     color: white;
     box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
     margin: 20px auto;
 }
 
-/* Table Header */
 .crypto-table th {
     background: #333;
     color: white;
@@ -49,7 +233,6 @@ body {
     text-transform: uppercase;
 }
 
-/* Table Rows */
 .crypto-table td {
     padding: 15px;
     font-size: 0.95rem;
@@ -58,27 +241,24 @@ body {
     text-align: center;
 }
 
-/* Hover Effect on Rows */
 .crypto-table tbody tr:hover {
     background: #292929;
     cursor: pointer;
 }
 
-/* Positive & Negative Percentage Colors */
 .positive {
-    color: #4caf50; /* Green */
+    color: #4caf50;
     font-weight: bold;
 }
 
 .negative {
-    color: #f44336; /* Red */
+    color: #f44336;
     font-weight: bold;
 }
 
-/* Mobile Responsive Table */
 @media (max-width: 768px) {
     .crypto-table thead {
-        display: none; /* Hide Table Headers on Mobile */
+        display: none; 
     }
 
     .crypto-table tbody tr {
@@ -104,9 +284,15 @@ body {
         font-weight: bold;
         color: #bbb;
     }
+    .crypto-table td[data-label="Price"],
+    .crypto-table td[data-label="Volume"],
+    .crypto-table td[data-label="Market Cap"],
+    .crypto-table td[data-label="Supply"] {
+        display: none;
+    }
 }
 
-/* AI Assistant Floating Button */
+
 .ai-button {
     position: fixed;
     bottom: 20px;
@@ -126,7 +312,6 @@ body {
     transform: scale(1.1);
 }
 
-/* AI Assistant Popup */
 .ai-popup {
     position: fixed;
     bottom: 80px;
@@ -159,7 +344,6 @@ body {
     cursor: pointer;
 }
 
-/* AI Floating WebM Icon */
 .ai-icon-container {
     position: fixed;
     bottom: 20px;
@@ -172,7 +356,6 @@ body {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* AI Floating Icon Styling */
 .ai-icon {
     width: 100%;
     height: 100%;
@@ -198,3 +381,34 @@ body {
     border: none;
     cursor: pointer;
 }
+
+/* Container to hold the video */
+.video-background {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full screen height */
+    overflow: hidden;
+  }
+  
+  /* Background Video */
+  .background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; /* Ensures the video covers the full div */
+    z-index: -1;
+  }
+  
+  /* Content Overlay */
+  .content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    padding-top: 20%;
+  }
+  
