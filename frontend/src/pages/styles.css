@@ -1,0 +1,200 @@
+/* Global Styles */
+body {
+    background-color: #121212;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* Container */
+.container {
+    margin-left: 20px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+/* Title Styling */
+.title {
+    font-size: 2rem;
+    margin: 20px 0;
+}
+
+/* Center the Table */
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Table Styling */
+.crypto-table {
+    width: 90%;
+    max-width: 1200px;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #1e1e1e;
+    color: white;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+    margin: 20px auto;
+}
+
+/* Table Header */
+.crypto-table th {
+    background: #333;
+    color: white;
+    font-size: 1rem;
+    padding: 12px;
+    text-transform: uppercase;
+}
+
+/* Table Rows */
+.crypto-table td {
+    padding: 15px;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #444;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+}
+
+/* Hover Effect on Rows */
+.crypto-table tbody tr:hover {
+    background: #292929;
+    cursor: pointer;
+}
+
+/* Positive & Negative Percentage Colors */
+.positive {
+    color: #4caf50; /* Green */
+    font-weight: bold;
+}
+
+.negative {
+    color: #f44336; /* Red */
+    font-weight: bold;
+}
+
+/* Mobile Responsive Table */
+@media (max-width: 768px) {
+    .crypto-table thead {
+        display: none; /* Hide Table Headers on Mobile */
+    }
+
+    .crypto-table tbody tr {
+        display: flex;
+        flex-direction: column;
+        background: #222;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.1);
+        padding: 10px;
+    }
+
+    .crypto-table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px;
+        font-size: 1rem;
+        border: none;
+    }
+
+    .crypto-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #bbb;
+    }
+}
+
+/* AI Assistant Floating Button */
+.ai-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #00ff7f;
+    color: black;
+    font-size: 16px;
+    padding: 15px 20px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 255, 127, 0.5);
+    transition: transform 0.2s;
+}
+
+.ai-button:hover {
+    transform: scale(1.1);
+}
+
+/* AI Assistant Popup */
+.ai-popup {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background: #222;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+.ai-popup h3 {
+    margin: 0;
+}
+
+.ai-popup p {
+    font-size: 14px;
+}
+
+.ai-popup .close-btn {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+}
+
+/* AI Floating WebM Icon */
+.ai-icon-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* AI Floating Icon Styling */
+.ai-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Buttons */
+.buy-btn {
+    background: green;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.sell-btn {
+    background: red;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+}

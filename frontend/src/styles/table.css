@@ -1,0 +1,319 @@
+/* Make the entire page dark-themed */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: white;
+    overflow-x: hidden;
+  }
+  
+  /* Full-screen container */
+  .container {
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Full-width table */
+  .crypto-table {
+    width: 95%;
+    max-height: 80vh;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  /* Fixed header for large tables */
+  .crypto-table thead {
+    position: sticky;
+    top: 0;
+    background: #1f1f1f;
+    z-index: 10;
+  }
+  
+  .crypto-table th, .crypto-table td {
+    padding: 15px;
+    border-bottom: 1px solid #333;
+    text-align: center;
+    white-space: nowrap;
+  }
+  
+  /* Header Styling */
+  .crypto-table th {
+    background: #1f1f1f;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  /* Row Styling */
+  .crypto-table tr:nth-child(even) {
+    background: #2a2a2a;
+  }
+  
+  .crypto-table tr:hover {
+    background: #3a3a3a;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  /* Conditional Colors */
+  .apy-positive { color: #00FF7F; font-weight: bold; }
+  .apy-negative { color: #FF4500; font-weight: bold; }
+  
+  .prediction-up { color: #00FF7F; font-weight: bold; }
+  .prediction-down { color: #FF4500; font-weight: bold; }
+  
+  /* Full-screen modal */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background: #222;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 700px;
+    text-align: center;
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.1);
+    position: relative;
+  }
+  
+  /* Close Button */
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    background: none;
+    border: none;
+  }
+  
+  .close:hover {
+    color: red;
+  }
+  
+  /* Button Group */
+  .modal-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .modal-actions button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .analyze-btn { background: #007BFF; color: white; }
+  .buy-btn { background: #28a745; color: white; }
+  .sell-btn { background: #dc3545; color: white; }
+  
+  .analyze-btn:hover { background: #0056b3; }
+  .buy-btn:hover { background: #1e7e34; }
+  .sell-btn:hover { background: #c82333; }
+  
+  /* Responsive Graph */
+  .chart-container {
+    width: 100%;
+    height: 300px;
+    margin-top: 20px;
+  }
+  
+  /* Scrollable Table */
+  .table-container {
+    max-height: 75vh;
+    overflow-y: auto;
+    width: 95%;
+    border-radius: 10px;
+  }
+  
+  /* Scrollbar Customization */
+  .table-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .table-container::-webkit-scrollbar-track {
+    background: #1a1a1a;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .modal-content {
+      width: 95%;
+    }
+  
+    .crypto-table th, .crypto-table td {
+      font-size: 12px;
+      padding: 8px;
+    }
+  
+    .chart-container {
+      height: 250px;
+    }
+  
+    .modal-actions button {
+      font-size: 14px;
+      padding: 10px 15px;
+    }
+  }
+  /* Dark Themed Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  }
+  
+  /* Show Modal when Active */
+  .modal.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* Modal Content Box */
+  .modal-content {
+    background: #222;
+    padding: 30px;
+    border-radius: 12px;
+    width: 85%;
+    max-width: 700px;
+    text-align: center;
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.15);
+    position: relative;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* When Modal is Active, Slide In */
+  .modal.active .modal-content {
+    transform: translateY(0);
+  }
+  
+  /* Close Button */
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 26px;
+    cursor: pointer;
+    color: white;
+    background: none;
+    border: none;
+  }
+  
+  .close:hover {
+    color: red;
+  }
+  
+  /* Coin Details */
+  .modal h2 {
+    margin-bottom: 10px;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .modal p {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #bbb;
+  }
+  
+  /* Chart Area */
+  .chart-container {
+    width: 100%;
+    height: 300px;
+    margin-top: 15px;
+    background: #1a1a1a;
+    padding: 15px;
+    border-radius: 10px;
+  }
+  
+  /* Button Group */
+  .modal-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .modal-actions button {
+    flex: 1;
+    padding: 12px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .analyze-btn { background: #007BFF; color: white; }
+  .buy-btn { background: #28a745; color: white; }
+  .sell-btn { background: #dc3545; color: white; }
+  
+  .analyze-btn:hover { background: #0056b3; }
+  .buy-btn:hover { background: #1e7e34; }
+  .sell-btn:hover { background: #c82333; }
+  
+  /* Mobile Optimized */
+  @media (max-width: 768px) {
+    .modal-content {
+      width: 95%;
+      padding: 20px;
+    }
+  
+    .modal-actions {
+      flex-direction: column;
+    }
+  
+    .modal-actions button {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+  
+    .chart-container {
+      height: 250px;
+    }
+  }
+  
